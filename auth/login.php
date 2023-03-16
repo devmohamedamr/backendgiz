@@ -24,9 +24,9 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <form action="login.php" method="post">
-        <input type="text" name="email">
-        <input type="text" name="password">
+    <form action="index.php" method="post" enctype="multipart/form-data">
+    <input type="text" name="name">   
+    <input type="file" multiple name="img[]">
         <input type="submit">
     </form>
 </body>
