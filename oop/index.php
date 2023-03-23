@@ -44,9 +44,27 @@
 // $f->color = "red";
 // print_r($f);
 
+class car 
+{
+    private $color = "Red";
+    function change(){
+        echo "color is :".$this->color;
+    }
+}
+// $c = new car;
+// $c->change();
+// echo $c->color;
 
+class bmw extends car 
+{
+    function newchange()
+    {
+        echo "color change is :".$this->color;
+    } 
+}
 
-
+$b = new bmw;
+$b->newchange();
 
 
 
