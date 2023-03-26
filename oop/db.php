@@ -4,9 +4,9 @@ class db
 {
     private $connection;
     private $sql;
-    public function __construct()
+    public function __construct($server,$user,$pass,$db)
     {
-        $this->connection = mysqli_connect("localhost","root","","giz2");
+        $this->connection = mysqli_connect($server,$user,$pass,$db);
     }
     public function select($table,$columns)
     {
@@ -30,6 +30,18 @@ class db
         $query =  mysqli_query($this->connection,$this->sql);
         return mysqli_fetch_assoc($query);
     }
+    public function insert($table,$data){
+        $columns  = "";
+        $values  = "";
+        foreach($data as $column => $value){
+            $columns .= $column.",";
+            $values .=  "'".$value."',";
+        }
+        $columns = rtrim($columns,",");
+        $values = rtrim($values,",");
+        $this->sql = "INSERT INTO `$table` ( $columns ) VALUES ( $values )";
+        return $this;
+    }
     public function excute(){
         mysqli_query($this->connection,$this->sql);
         return mysqli_affected_rows($this->connection);
@@ -41,7 +53,17 @@ class db
 }
 
 
-$db  = new db;
-$data = $db->delete("category")->where("id","=",2)->excute();
-echo "<pre>";
-print_r($data);
+$db  = new db("localhost","root","","giz2");
+// $data =  $db->select("category","*")->all();
+// print_r($data);
+// $db->insert("category",[
+//     "id"=>22 ,
+//      "name"=>"ahmed"
+// ])->excute();
+
+
+
+
+
+
+
