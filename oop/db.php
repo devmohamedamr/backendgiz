@@ -1,5 +1,5 @@
 <?php
-
+namespace amit;
 class db 
 {
     private $connection;
@@ -53,7 +53,7 @@ class db
 }
 
 
-$db  = new db("localhost","root","","giz2");
+// $db  = new db("localhost","root","","giz2");
 // $data =  $db->select("category","*")->all();
 // print_r($data);
 // $db->insert("category",[

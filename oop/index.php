@@ -324,3 +324,35 @@
 // $u->password = 1234;
 
 // echo $u->password;
+
+// include "user.php";
+// include "category.php";
+// spl_autoload_register(function($n){
+//     include $n.".php";
+// });
+// $c = new user;
+
+include "db.php";
+
+// class db {
+
+// }
+
+
+$d = new amit\db("","","","");
+
+
+
+
+
+
+
+
+
+
+// $x = function (){
+//     echo "hi x";
+// };
+
+
+// $x();
