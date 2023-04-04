@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\category;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,6 @@ Route::get('/delete/{id}',[category::class,"delete"]);
 
 Route::get('/edit/{id}',[category::class,"edit"]);
 Route::post("/update",[category::class,"update"]);
+
+
+Route::get('/product',[ProductController::class,"index"]);
