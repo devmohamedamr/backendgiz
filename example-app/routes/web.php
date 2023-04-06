@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\category;
+use App\Http\Controllers\course;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\user;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,10 @@ Route::get('/delete/{id}',[category::class,"delete"]);
 
 Route::get('/edit/{id}',[category::class,"edit"]);
 Route::post("/update",[category::class,"update"]);
-
-
 Route::get('/product',[ProductController::class,"index"]);
+Route::get('/course',[course::class,"index"])->middleware("auth");
+Route::get('/login',[user::class,"login"])->name("login");
+
+Route::post('/loginrequest',[user::class,"loginrequest"]);
+
+Route::get('/logout',[user::class,"logout"]);
